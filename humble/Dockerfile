@@ -118,6 +118,7 @@ RUN if [ "$TARGETPLATFORM" = "linux/amd64" ]; then \
     fi
 
 COPY ./entrypoint.sh /
+RUN sed -i -e 's/\r$//' /entrypoint.sh
 ENTRYPOINT [ "/bin/bash", "-c", "/entrypoint.sh" ]
 
 ENV USER ubuntu
